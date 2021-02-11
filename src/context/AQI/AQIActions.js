@@ -37,10 +37,14 @@ const AQIActions = (props) => {
             let localPollutionData =  {};
             resetItemLoaded();
             for(let i=0; i<state.geographies.length; i++) {
-                const res = await axios.get(`/aqi?lat=${state.geographies[i].properties.lat}&lon=${state.geographies[i].properties.lon}&APPID=${config.API_KEY}`);
-                // const res = await axios.get(`/nearest_city?lat=${state.geographies[i].properties.lat}&lon=${state.geographies[i].properties.lon}&key=${config.API_KEY}`);
-                localPollutionData[i] = res.data.data;
-                itemLoaded();
+                try {
+                    const res = await axios.get(`/aqi?lat=${state.geographies[i].properties.lat}&lon=${state.geographies[i].properties.lon}&APPID=${config.API_KEY}`);
+                    localPollutionData[i] = res.data.data;
+                    itemLoaded();
+                }
+                catch(err) {
+                    console.log(err.message);
+                }
             }
             localStorage.setItem("pollutionData", JSON.stringify(localPollutionData));
             dispatch({
@@ -59,6 +63,7 @@ const AQIActions = (props) => {
             setLoading();
             const time = localStorage.getItem("lastFetchTime");
             if(time + (1 * 60 * 60 * 1000) > Date.now()) {
+                resetLoading();
                 return;
             }
             let localPollutionData = JSON.parse(localStorage.getItem("pollutionData"));
@@ -69,9 +74,14 @@ const AQIActions = (props) => {
             localPollutionData =  {};
             resetItemLoaded();
             for(let i=0; i<state.geographies.length; i++) {
-                const res = await axios.get(`/aqi?lat=${state.geographies[i].properties.lat}&lon=${state.geographies[i].properties.lon}&APPID=${config.API_KEY}`);
-                localPollutionData[i] = res.data.data;
-                itemLoaded();
+                try {
+                    const res = await axios.get(`/aqi?lat=${state.geographies[i].properties.lat}&lon=${state.geographies[i].properties.lon}&APPID=${config.API_KEY}`);
+                    localPollutionData[i] = res.data.data;
+                    itemLoaded();
+                }
+                catch(err) {
+                    console.log(err.message);
+                }
             }
             localStorage.setItem("pollutionData", JSON.stringify(localPollutionData));
             dispatch({

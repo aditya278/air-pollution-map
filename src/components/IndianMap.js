@@ -6,7 +6,7 @@ import AQIContext from "../context/AQI/AQIContext";
 const IndianMap = ({ stateJson, width, height }) => {
 
   const [pollutionType, setPollutionType] = useState('');
-  const [legendColors, setLegendColors] = useState([]);
+  const [legendText, setLegendText] = useState("Click on any state");
 
   const aqiContext = useContext(AQIContext);
 
@@ -24,8 +24,7 @@ const IndianMap = ({ stateJson, width, height }) => {
   const handleStateClick = (stateIndex) => {
     // console.log(stateIndex);
     // console.log(aqiContext.geographies[stateIndex].properties.st_nm);
-    // aqiContext.getSingleStatePollutionData(stateIndex);
-    aqiContext.itemLoaded();
+    setLegendText(aqiContext.geographies[stateIndex].properties.st_nm);
   };
 
   const getProperColorName = (color) => {
@@ -41,14 +40,12 @@ const IndianMap = ({ stateJson, width, height }) => {
       
         if(pollutionType === "general") {
           const color = getProperColorName(aqiContext.pollutionData[index].color);
-          // setLegendColors(new Set([...legendColors, color]));
           return color;
         }
   
         const pollutionData = aqiContext.pollutionData[index].aqiParams.filter(data => data.name === pollutionType);
         if(pollutionData.length > 0) {
           const color = getProperColorName(pollutionData[0].color);
-          // setLegendColors(new Set([...legendColors, color]));
           return color;
         }
       }
@@ -79,7 +76,7 @@ const IndianMap = ({ stateJson, width, height }) => {
     <>
       {
         aqiContext.loading ? (
-          <h2>Loading ..... {(parseInt(aqiContext.itemLoaded) / 35) * 100}% </h2>
+          <h2>Loading ..... Might take some time to load all the state's data...</h2>
         ) : (
           <>
             <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
@@ -113,13 +110,14 @@ const IndianMap = ({ stateJson, width, height }) => {
                   ))
                 }
               </g>
-              {/* <rect x="30" y={height - height/2} width="30" height="30" stroke="black" fill="transparent" strokeWidth="1.5"/> */}
+              <rect x="30" y={height - height/4} width="200" height="150" stroke="black" fill="transparent" strokeWidth="1.5"/>
+              <text x="35"  y={height - height/4 + 30} maxwidth="200" fontFamily="Verdana" fontSize="20" fill="Red">{legendText}</text>
             </svg>
             <div className="btn-group">
               <button className="btn" onClick={() => {
                   aqiContext.reloadAllStatesPollutionData();
                   setPollutionType('general');
-                  setLegendColors([]);
+                  
                 }
               }>
                 Reload Pollution Data
@@ -127,7 +125,7 @@ const IndianMap = ({ stateJson, width, height }) => {
               <button className="btn" onClick={() => {
                   aqiContext.getAllStatesPollutionData();
                   setPollutionType('general');
-                  setLegendColors([]);
+                  
                 }
               }>
                 Get Pollution Data
@@ -135,7 +133,7 @@ const IndianMap = ({ stateJson, width, height }) => {
               <button className="btn" onClick={() => {
                   aqiContext.getAllStatesPollutionData();
                   setPollutionType('PM2.5');
-                  setLegendColors([]);
+                  
                 }
               }>
                 Get PM2.5 Data
@@ -143,7 +141,7 @@ const IndianMap = ({ stateJson, width, height }) => {
               <button className="btn" onClick={() => {
                   aqiContext.getAllStatesPollutionData();
                   setPollutionType('NO2');
-                  setLegendColors([]);
+                  
                 }
               }>
                 Get NO2 Data
@@ -151,7 +149,7 @@ const IndianMap = ({ stateJson, width, height }) => {
               <button className="btn" onClick={() => {
                   aqiContext.getAllStatesPollutionData();
                   setPollutionType('SO2');
-                  setLegendColors([]);
+                  
                 }
               }>
                 Get SO2 Data
@@ -159,7 +157,7 @@ const IndianMap = ({ stateJson, width, height }) => {
               <button className="btn" onClick={() => {
                   aqiContext.getAllStatesPollutionData();
                   setPollutionType('O3');
-                  setLegendColors([]);
+                  
                 }
               }>
                 Get O3 Data

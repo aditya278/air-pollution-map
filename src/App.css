@@ -89,6 +89,7 @@ div.tooltip {
   margin: auto;
   column-gap: 1rem;
   row-gap: 1rem;
+  padding-bottom: 2rem;
 }
 
 .btn {
