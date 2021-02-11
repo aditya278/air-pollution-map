@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/AirPollution/static/css/main.05ea4fee.chunk.css",
-    "main.js": "/AirPollution/static/js/main.3718c19f.chunk.js",
-    "main.js.map": "/AirPollution/static/js/main.3718c19f.chunk.js.map",
-    "runtime-main.js": "/AirPollution/static/js/runtime-main.9d2b43b9.js",
-    "runtime-main.js.map": "/AirPollution/static/js/runtime-main.9d2b43b9.js.map",
-    "static/js/2.a3686753.chunk.js": "/AirPollution/static/js/2.a3686753.chunk.js",
-    "static/js/2.a3686753.chunk.js.map": "/AirPollution/static/js/2.a3686753.chunk.js.map",
-    "index.html": "/AirPollution/index.html",
-    "static/css/main.05ea4fee.chunk.css.map": "/AirPollution/static/css/main.05ea4fee.chunk.css.map",
-    "static/js/2.a3686753.chunk.js.LICENSE.txt": "/AirPollution/static/js/2.a3686753.chunk.js.LICENSE.txt"
+    "main.css": "/air-pollution-map/static/css/main.05ea4fee.chunk.css",
+    "main.js": "/air-pollution-map/static/js/main.3718c19f.chunk.js",
+    "main.js.map": "/air-pollution-map/static/js/main.3718c19f.chunk.js.map",
+    "runtime-main.js": "/air-pollution-map/static/js/runtime-main.07aca894.js",
+    "runtime-main.js.map": "/air-pollution-map/static/js/runtime-main.07aca894.js.map",
+    "static/js/2.a3686753.chunk.js": "/air-pollution-map/static/js/2.a3686753.chunk.js",
+    "static/js/2.a3686753.chunk.js.map": "/air-pollution-map/static/js/2.a3686753.chunk.js.map",
+    "index.html": "/air-pollution-map/index.html",
+    "static/css/main.05ea4fee.chunk.css.map": "/air-pollution-map/static/css/main.05ea4fee.chunk.css.map",
+    "static/js/2.a3686753.chunk.js.LICENSE.txt": "/air-pollution-map/static/js/2.a3686753.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.9d2b43b9.js",
+    "static/js/runtime-main.07aca894.js",
     "static/js/2.a3686753.chunk.js",
     "static/css/main.05ea4fee.chunk.css",
     "static/js/main.3718c19f.chunk.js"
