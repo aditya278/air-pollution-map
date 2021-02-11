@@ -6,7 +6,7 @@
       "geometries": [
         {
           "type": "MultiPolygon",
-          "properties": { "st_nm": "Andaman & Nicobar Island", "lat" :  "11.623377", "lon" : "92.726486"},
+          "properties": { "st_nm": "Andaman & Nicobar Island", "lat" :  "11.936790553886944", "lon" : "92.72017301760236"},
           "arcs": [
             [[0]],
             [[1]],
