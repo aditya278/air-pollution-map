@@ -38,7 +38,7 @@ const AQIActions = (props) => {
             resetItemLoaded();
             for(let i=0; i<state.geographies.length; i++) {
                 try {
-                    const res = await axios.get(`/aqi?lat=${state.geographies[i].properties.lat}&lon=${state.geographies[i].properties.lon}&APPID=${config.API_KEY}`);
+                    const res = await axios.get(`http://api.airpollutionapi.com/1.0/aqi?lat=${state.geographies[i].properties.lat}&lon=${state.geographies[i].properties.lon}&APPID=${config.API_KEY}`);
                     localPollutionData[i] = res.data.data;
                     itemLoaded();
                 }
@@ -75,7 +75,7 @@ const AQIActions = (props) => {
             resetItemLoaded();
             for(let i=0; i<state.geographies.length; i++) {
                 try {
-                    const res = await axios.get(`/aqi?lat=${state.geographies[i].properties.lat}&lon=${state.geographies[i].properties.lon}&APPID=${config.API_KEY}`);
+                    const res = await axios.get(`http://api.airpollutionapi.com/1.0/aqi?lat=${state.geographies[i].properties.lat}&lon=${state.geographies[i].properties.lon}&APPID=${config.API_KEY}`);
                     localPollutionData[i] = res.data.data;
                     itemLoaded();
                 }
@@ -107,7 +107,7 @@ const AQIActions = (props) => {
                 return;
             }
 
-            const res = await axios.get(`/aqi?lat=${stateData.properties.lat}&lon=${stateData.properties.lon}&APPID=${config.API_KEY}`);
+            const res = await axios.get(`http://api.airpollutionapi.com/1.0/aqi?lat=${stateData.properties.lat}&lon=${stateData.properties.lon}&APPID=${config.API_KEY}`);
 
             localPollutionData = {
                 ...state.pollutionData,
